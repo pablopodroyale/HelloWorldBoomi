@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hello.connector</groupId>
+  <artifactId>HelloConnector</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>HelloConnector</name>
+  <url>http://maven.apache.org</url>
+
+  <!-- Specification of the Boomi SDK repository -->
+  <repositories>
+    <repository>
+      <id>boomisdk</id>
+      <name>Connector SDK Repository</name>
+      <url>https://boomisdk.s3.amazonaws.com/releases</url>
+    </repository>
+  </repositories>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <connector.sdk.version>2.24.0</connector.sdk.version>
+  </properties>
+  <scm>
+    <!--suppress UnresolvedMavenProperty -->
+    <connection>scm:git:file://${env.PWD}/.git</connection>
+    <tag>HEAD</tag>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.boomi.connsdk</groupId>
+      <artifactId>connector-sdk-util</artifactId>
+      <version>${connector.sdk.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/main/assembly/assembly.xml</descriptor> <!-- Asegúrate de que apunte al archivo assembly.xml -->
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

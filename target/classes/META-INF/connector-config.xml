@@ -1,0 +1,3 @@
+<GenericConnector sdkApiVersion="2.13.6">
+    <connectorClassName>com.hello.connector.HelloConnector</connectorClassName>
+</GenericConnector>

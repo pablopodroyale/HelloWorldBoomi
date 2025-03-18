@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<GenericConnectorDescriptor browsingType="cloud" requireConnectionForBrowse="false">
+    <description>Connector without connection section</description>
+    <field id="authenticationType" label="Authentication Type" type="string" displayType="list">
+        <helpText>
+           Auth Type
+        </helpText>
+        <defaultValue>NONE</defaultValue>
+        <allowedValue label="NONE">
+            <value>NONE</value>
+        </allowedValue>
+    </field>
+
+    <operation types="EXECUTE" supportsBrowse="false">
+        <field id="inputFromOperation" label="Input from operation" type="string">
+            <helpText>This is an input from descriptor</helpText>
+        </field>
+    </operation>
+
+</GenericConnectorDescriptor>
